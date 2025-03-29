@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center text-success">Adventure Activities</h2>
+    <hr>
+
+    <div class="row g-4">
+       
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <img src="{% static 'images/kayking.jpg' %}" class="card-img-top" alt="Kayaking">
+                <div class="card-body">
+                    <h5 class="card-title">Kayaking</h5>
+                    <p class="card-text">Paddle through the serene waters and enjoy an adventurous kayaking experience.</p>
+                </div>
+            </div>
+        </div>
+
+      
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <img src="{% static 'images/cycling.jpg' %}" class="card-img-top" alt="Cycling">
+                <div class="card-body">
+                    <h5 class="card-title">Cycling</h5>
+                    <p class="card-text">Explore the park on two wheels with our exciting cycling trails.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-success">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

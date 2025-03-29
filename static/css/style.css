@@ -1,0 +1,17 @@
+.hero-section {
+    background-image: url('/static/images/hero.jpg'); /* Normal background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 20px;
+    border-radius: 10px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex: 1; /* Ensures content takes up remaining space */
+}

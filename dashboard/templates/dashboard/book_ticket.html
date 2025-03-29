@@ -1,0 +1,53 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="text-center">
+        <h2 class="fw-bold text-success">Book Your Ticket</h2>
+        <p class="text-muted">Fill in the details below to book your eco park ticket.</p>
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-5 col-sm-8 col-10">
+                <div class="card shadow p-4 border-0 rounded-4">
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} p-2 text-center">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <!--  Ticket Booking Form -->
+                        <form method="POST" action="{% if ticket %}{% url 'process_payment' ticket.id %}{% else %}#{% endif %}">
+                            {% csrf_token %}
+                            
+                            <!-- Use Django Form Fields -->
+                            <div class="mb-3">
+                                {{ form.as_p }}
+                            </div>
+
+                 
+                            <div class="mb-3 text-center fw-bold">
+                                <p>Amount: ₹30 per ticket</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-success w-100 py-2 fw-bold rounded-3">
+                                Confirm Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {% else %}
+        <!-- Show login prompt if user is not authenticated -->
+        <div class="alert alert-danger text-center mt-4">
+            <h5>You must <a href="{% url 'login' %}" class="text-decoration-none fw-bold">log in</a> to book a ticket.</h5>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

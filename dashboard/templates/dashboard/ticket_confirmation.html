@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="container mt-3 d-flex justify-content-center pb-5">
+    <div class="card shadow p-4 border-0 rounded-4" style="max-width: 450px; width: 100%; min-height: 90vh; display: flex; justify-content: center;">
+        <div class="card-body text-center d-flex flex-column justify-content-between" style="min-height: 80vh;">
+            <div>
+                <h4 class="fw-bold text-success">🎟 Ticket Confirmation</h4>
+                <p class="text-muted">Your ticket has been successfully booked.</p>
+                <hr>
+
+                <p class="small"><strong>Name:</strong> {{ ticket.name }}</p>
+                <p class="small"><strong>Email:</strong> {{ ticket.email }}</p>
+                <p class="small"><strong>Date:</strong> {{ ticket.date }}</p>
+                <p class="small"><strong>Tickets:</strong> {{ ticket.tickets }}</p>
+                <p class="small"><strong>Amount Paid:</strong> ₹{{ total_amount }}</p>
+            </div>
+
+            {% if ticket.qr_code %}
+                <div class="mt-3">
+                    <h5 class="small">📌 Scan Your Ticket</h5>
+                    <img src="{{ ticket.qr_code.url }}" alt="Ticket QR Code" class="img-fluid mt-2 rounded shadow-sm" style="max-width: 150px;">
+                    <p class="text-muted small">Scan the QR code to view your ticket details.</p>
+                </div>
+                <a href="{% url 'download_ticket' ticket.id %}" class="btn btn-primary mt-3 btn-sm">
+                    📥 Download Ticket (PDF)
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

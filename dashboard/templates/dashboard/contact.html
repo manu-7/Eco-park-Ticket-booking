@@ -1,0 +1,70 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .contact-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container h2 {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .btn-success {
+        width: 100%;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        border-radius: 10px;
+        height: 300px;
+    }
+</style>
+
+<!-- Contact Page Section -->
+<div class="container mt-5">
+    <div class="contact-container p-4">
+        <h2 class="text-center">📞 Contact Us</h2>
+        <p class="text-muted text-center">We'd love to hear from you! Fill out the form below or visit us.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Enter your message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Embedded Google Map -->
+    <div class="map-container mt-4 mb-4">
+        <h5 class="text-center text-success">📍 Our Location</h5>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31106.883501732823!2d88.3958996!3d22.5726461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c4097d519b%3A0x8d268e6c0a1b9c5c!2sEco%20Park%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1619330212015!5m2!1sen!2sin" 
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+{% endblock %}
