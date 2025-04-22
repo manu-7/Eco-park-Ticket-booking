@@ -12,7 +12,7 @@ load_dotenv(dotenv_path)
 SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
 DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']  # Add more if needed
+ALLOWED_HOSTS = ['eco-park-ticket-booking-1.onrender.com', 'localhost', '127.0.0.1'] # Add more if needed
 
 # Message tags for Bootstrap alerts
 MESSAGE_TAGS = {
