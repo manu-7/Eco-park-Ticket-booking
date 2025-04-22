@@ -87,6 +87,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Password validation
@@ -141,7 +142,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv  # ✅ Import load_dotenv
+from dotenv import load_dotenv 
 
 # Load .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,3 +158,5 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 # Debugging: Print SECRET_KEY to verify it loads
 print(f"Loaded SECRET_KEY: {SECRET_KEY[:8]}********")
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

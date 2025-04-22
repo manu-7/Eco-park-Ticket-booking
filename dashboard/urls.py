@@ -12,9 +12,10 @@ urlpatterns = [
     path('ticket_confirmation/<int:ticket_id>/', views.ticket_confirmation, name='ticket_confirmation'),  # Confirmation page
     path('download_ticket/<int:ticket_id>/', views.download_ticket, name='download_ticket'), 
 
-    # ✅ Payment URLs
+    # Payment URLs
     path('process_payment/<int:ticket_id>/', views.process_payment, name='process_payment'), 
     path('payment_success/', views.payment_success, name='payment_success'), 
     path('adventure/', adventure_activities, name='adventure'),
+    
     
 ]

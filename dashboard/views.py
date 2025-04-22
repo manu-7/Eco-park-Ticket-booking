@@ -225,3 +225,7 @@ def download_ticket(request, ticket_id):
 
 def adventure_activities(request):
     return render(request, 'dashboard/adventure.html')
+
+from django.shortcuts import render
+
+

@@ -53,6 +53,60 @@
         height: 200px; /* Adjust as needed */
         object-fit: cover;
     }
+    .hero-section {
+        height: auto;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-section p {
+        font-size: 1rem;
+      }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+      }
+      
+      .card {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      
+      /* 🔽 Responsive layout for smaller screens */
+      @media (max-width: 768px) {
+        .card {
+          width: 90%; /* Full width with margin on smaller devices */
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .card {
+          width: 100%;
+          margin: 0 auto;
+        }
+      
+        .card-container {
+          padding: 10px;
+          gap: 15px;
+        }
+      }
+      
+      
 </style>
 
 
@@ -91,7 +145,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Scenic Beauty</h5>
                     <p>Experience breathtaking views and serene landscapes.</p>
-                    <a href="#" class="btn btn-success mt-3">Explore More</a>
+                    <a href="/" class="btn btn-success mt-3">Explore More</a>
+
                 </div>
             </div>
         </div>
@@ -99,7 +154,7 @@
 
         <div class="col-md-4 d-flex">
             <div class="card shadow-sm">
-                <img class="card-img-top" src="{% static 'images/adventure.jpg' %}" alt="Adventure Activities">
+                <img class="card-img-top" src="{% static 'images/cycling.jpg' %}" alt="Adventure Activities">
                 <div class="card-body">
                     <h5 class="card-title">Adventure Activities</h5>
                     <p>Engage in thrilling activities like Kayaking and Cycling.</p>
